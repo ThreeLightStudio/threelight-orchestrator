@@ -1,0 +1,6 @@
+interface:
+  display_name: "ThreeLight Orchestrator — Codex"
+  short_description: "별도 세션과 서브에이전트 작업의 실행·검토·재개"
+  default_prompt: "$threelight-orchestrator-codex로 작업 범위를 먼저 논의하고, 실행을 요청하면 세션과 보조 서브에이전트를 조정해 주세요."
+policy:
+  allow_implicit_invocation: true

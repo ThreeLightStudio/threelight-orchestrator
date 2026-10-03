@@ -1,0 +1,15 @@
+{
+  "format": 1,
+  "target": "zcode",
+  "name": "threelight-orchestrator-zcode",
+  "version": "0.1.0",
+  "files": {
+    "LICENSE": "0e026d20a808d7b2052945941162e96bc0ac1cb196ff2a8f64635366df15c345",
+    "references/measurement-and-scheduling.md": "a83602014e735e2ca476aedfac0fdf82d761dc8cf27b31cb4df77ba1db7f81b0",
+    "references/operating.md": "172876fe5ea1d6169d49834ba4e41036ad74047fb57f03df2a5b4111844bdc19",
+    "references/records.md": "f8bbc23aebcf910cb39c7d7cfae52d2585154cef679c044a304ae330a4be75e0",
+    "references/subagents.md": "b41523a242689600de45d8d3d5731e0752373c0c66a4830cc4e605854f3460e9",
+    "references/zcode.md": "6e5c7a71e10ec8337f6b7221545a79f65526a3f2817200351548197a698dd580",
+    "SKILL.md": "0f50c8e11ad1836400d9b756e874ef68bbba0283c66bbba8ca3f72869b0aa9a0"
+  }
+}

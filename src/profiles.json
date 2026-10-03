@@ -1,0 +1,40 @@
+{
+  "codex": {
+    "name": "threelight-orchestrator-codex",
+    "environment": "Codex",
+    "description": "Codex에서 승인된 작업을 별도 세션과 서브에이전트로 분해·실행·검토·재개한다. 독립 작업 대화의 유지와 제한된 보조 위임을 함께 관리할 때 사용한다. 다른 실행 환경에서는 사용하지 않는다.",
+    "execution": "독립적으로 유지하거나 사용자가 나중에 이어갈 작업은 별도 세션이 책임진다. 조사·검토 같은 제한된 보조 작업은 메인이나 작업 세션의 서브에이전트에 맡길 수 있다. 작은 작업은 서브에이전트만 사용한다. 항상 둘 다 만들 필요는 없다.",
+    "references": [
+      ["codex.md", "Codex 실행 환경과 방식 선택", "실행 방식을 정하거나 도구를 호출하기 전에 읽는다."],
+      ["sessions.md", "별도 세션", "별도 작업 대화의 생성·후속 지시·대기·감시 때 읽는다."],
+      ["subagents.md", "서브에이전트", "제한된 보조 작업이나 작은 작업을 위임할 때 읽는다."],
+      ["model-selection.md", "모델과 effort", "작업자를 생성하거나 배정을 재평가할 때 읽는다."]
+    ],
+    "sources": {
+      "common/operating.md": "operating.md",
+      "common/records.md": "records.md",
+      "common/measurement-and-scheduling.md": "measurement-and-scheduling.md",
+      "modes/sessions.md": "sessions.md",
+      "modes/subagents.md": "subagents.md",
+      "hosts/codex.md": "codex.md",
+      "hosts/model-selection.md": "model-selection.md"
+    }
+  },
+  "zcode": {
+    "name": "threelight-orchestrator-zcode",
+    "environment": "ZCode",
+    "description": "ZCode에서 승인된 작업을 서브에이전트로 분해·실행·검토하고 기록으로 이어간다. 메인이 작업자 결과와 의존성을 조정할 때 사용한다. 다른 실행 환경에서는 사용하지 않는다.",
+    "execution": "메인이 서브에이전트 작업자를 직접 조정하고 결과를 검토한다. 현재 모델을 계승하며, 장기 유지와 기존 에이전트 재개는 실제 도구로 확인된 범위만 사용한다.",
+    "references": [
+      ["zcode.md", "ZCode 실행 환경", "도구를 호출하거나 재개 가능성을 판단하기 전에 읽는다."],
+      ["subagents.md", "서브에이전트", "작업 생성·결과 수집·후속 지시 때 읽는다."]
+    ],
+    "sources": {
+      "common/operating.md": "operating.md",
+      "common/records.md": "records.md",
+      "common/measurement-and-scheduling.md": "measurement-and-scheduling.md",
+      "modes/subagents.md": "subagents.md",
+      "hosts/zcode.md": "zcode.md"
+    }
+  }
+}

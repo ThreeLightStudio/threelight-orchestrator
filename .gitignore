@@ -1,0 +1,7 @@
+node_modules/
+.DS_Store
+.orchestrator/
+.local/
+*.log
+coverage/
+tmp/

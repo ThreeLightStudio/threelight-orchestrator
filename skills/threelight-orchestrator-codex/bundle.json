@@ -1,0 +1,18 @@
+{
+  "format": 1,
+  "target": "codex",
+  "name": "threelight-orchestrator-codex",
+  "version": "0.1.0",
+  "files": {
+    "agents/openai.yaml": "e41194cf9bc0a41c840e81337ab8df33adba06ed8fdf2435ff7211f960aad7f5",
+    "LICENSE": "0e026d20a808d7b2052945941162e96bc0ac1cb196ff2a8f64635366df15c345",
+    "references/codex.md": "0a99a36ecf770f929e7f8a02ce1c76d595ecac5662233651c68fcec3baea2137",
+    "references/measurement-and-scheduling.md": "a83602014e735e2ca476aedfac0fdf82d761dc8cf27b31cb4df77ba1db7f81b0",
+    "references/model-selection.md": "2cfcb1f30572b862b10a711e8d19d15d49a54a019e66d04e7f356a82aa974272",
+    "references/operating.md": "172876fe5ea1d6169d49834ba4e41036ad74047fb57f03df2a5b4111844bdc19",
+    "references/records.md": "f8bbc23aebcf910cb39c7d7cfae52d2585154cef679c044a304ae330a4be75e0",
+    "references/sessions.md": "20644a743bf0d0de24090ed4d25505dc0f648913601fee432c89a195c52f566b",
+    "references/subagents.md": "b41523a242689600de45d8d3d5731e0752373c0c66a4830cc4e605854f3460e9",
+    "SKILL.md": "8a4337bcd8e6e6ff817b0729cc26924553909bc1b137691405ab3e67a5974d92"
+  }
+}
