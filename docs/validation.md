@@ -13,7 +13,8 @@ Do not infer live support from successful bundle generation or automated tests. 
 | Codex review/ownership/budget scenarios | Passed as decision scenarios | Missing output not accepted; dependent task held; overlapping writes and extra worker disallowed; not a concurrent-write stress test |
 | ZCode skill behavior and subagent lifecycle | Observed in a user-run ZCode session on darwin/arm64 | User reported Agent ×2, SendMessage background resume of the same completed agent, and TaskOutput completion; input/result files also checked directly |
 | Restart durability and scheduled execution | Not established | Never inferred from same-parent follow-up |
-| CI platform matrix | Configured, not yet observed | Node 22/24 on Linux/macOS |
+| CI platform matrix | Passed for the v0.1.0 implementation | All four Node 22/24 Linux/macOS jobs passed; [recorded run](https://github.com/ThreeLightStudio/threelight-orchestrator/actions/runs/37102740604) |
+| Public installation | Passed from a fresh GitHub clone | Both profiles installed into a custom root without npm install; complete installed contents matched generated bundles |
 
 The old project's scenario tests and historical host claims do not establish this revision's support. Personal transcripts, session IDs, local paths and raw execution logs are not published as evidence. Public reports keep the scenario, conditions, outcome and limitations.
 
