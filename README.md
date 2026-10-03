@@ -42,6 +42,53 @@ Discussion and planning do not create workers. Explicitly request execution when
 
 Codex preserves the original Sol/Luna preference where model selection is supported and authorized. ZCode inherits the current model. Live tool schemas and user choices take precedence. Subagent follow-up within a parent chat does not establish restart durability.
 
+## Workflow / 제품 흐름
+
+The main agent keeps the scope, dependencies and final review. Workers return artifacts and verification evidence. Discussion alone does not start execution; downstream work uses only reviewed inputs. Actual host tools and permissions govern which execution routes are available.
+
+```mermaid
+flowchart TB
+  install["Install the matching Codex or ZCode skill"]
+  scope["Discuss goal and scope"]
+  approval["Execution requested?"]
+  plan["Set tasks, dependencies, ownership and limits"]
+  run["Dispatch or continue eligible workers"]
+  review["Inspect artifacts and verification evidence"]
+  accepted["Review passed?"]
+  fix["Request fixes or missing evidence"]
+  remaining["More work remains?"]
+  integration["Check the integrated completion criteria"]
+  complete["Overall criteria met?"]
+  handoff["Hand off results, evidence and limitations"]
+  install --> scope
+  scope --> approval
+  approval -->|No| scope
+  approval -->|Yes| plan
+  plan --> run
+  run --> review
+  review --> accepted
+  accepted -->|No| fix
+  fix -->|Reuse the assigned worker when possible| run
+  accepted -->|Yes| remaining
+  remaining -->|Yes&#58; use approved inputs| plan
+  remaining -->|No| integration
+  integration --> complete
+  complete -->|No| fix
+  complete -->|Yes| handoff
+```
+
+### Observed examples
+
+These isolated validation examples were exercised on 2026-10-03.
+
+| Example | Observed workflow | Checked outcome |
+| --- | --- | --- |
+| Codex hybrid execution | Independent worker chat → read-only subagent → parent review → same-child follow-up | Initial sum 42, changed-input sum 35, nonce continuity and matching input hashes |
+| ZCode parallel execution | Two read-only workers → main review → completed-worker resume | Sum 42, matching fixture/result files, same-parent follow-up; token-only formatting had a limitation |
+| Review and scheduling decisions | Missing evidence, unapproved dependency, overlapping writes, exhausted worker limit | Work held pending evidence/ownership/available slots; these were decision scenarios |
+
+See [illustrated examples / 검증 예시](docs/examples.md) for each host's flow and [validation status](docs/validation.md) for evidence and limits.
+
 ## Update and restore
 
 ```sh
@@ -68,7 +115,7 @@ npm test
 
 `build` regenerates one target under the output root. Existing build outputs must be intact recognized bundles; move locally edited outputs aside before rebuilding. `check` verifies metadata, links, checksums, and exact agreement with the source. CI checks Node.js 22 and 24 on Linux and macOS; the workflow configuration alone does not mean those runs have passed.
 
-See [architecture](docs/architecture.md), [validation status](docs/validation.md), [Codex scenarios](docs/codex-validation.md), and [ZCode live validation](docs/zcode-validation.md).
+See [illustrated examples](docs/examples.md), [architecture](docs/architecture.md), [validation status](docs/validation.md), [Codex scenarios](docs/codex-validation.md), and [ZCode live validation](docs/zcode-validation.md).
 
 ## 한국어 안내
 
@@ -87,6 +134,7 @@ node bin/tlo.mjs install --target zcode
 - 논의만 할 때는 작업자를 만들지 않습니다. 독립 작업 대화를 유지하려면 Codex 별도 세션, 작은 작업과 보조 조사·검토에는 서브에이전트를 사용합니다.
 - 변경 예정 내용은 `--dry-run`, 기존 설치본 교체는 `--replace`로 확인합니다. 교체 전에 전체 백업을 만들고 그 위치를 출력합니다.
 - 기존 `session-orchestrator`에서 전환할 때는 설치본을 검색 경로 밖에 보존하고 새 Codex용 설치본을 검증한 뒤 기존 설치본을 검색 경로에서 제거하세요. 과거 실행 기록과 자동화는 그대로 둡니다.
+- 전체 제품 흐름은 위 Mermaid 도표에, Codex·ZCode에서 확인한 실행 예시는 [검증 예시](docs/examples.md)에 정리했습니다.
 - 원본은 `src/`, 생성된 배포본은 `skills/`입니다. 실제 환경별 지원 범위는 [검증 현황](docs/validation.md)을 확인하세요.
 
 ## License
